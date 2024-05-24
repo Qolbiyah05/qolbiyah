@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data from MySQL</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+        /* Style untuk modal */
+        .modal {
+            display: none; /* Sembunyikan modal secara default */
+            position: fixed; /* Membuat modal tetap di tempat */
+            z-index: 1; /* Menetapkan z-index ke 1 */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Memungkinkan scrolling saat modal aktif */
+            background-color: rgba(0,0,0,0.4); /* Warna latar belakang semi-transparan */
+            padding-top: 60px;
+        }
+
+        /* Style untuk konten modal */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* Style untuk tombol close */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data from MySQL Database</h1>
+    
+    <!-- Tombol tambah data -->
+    <button onclick="document.getElementById('modalTambah').style.display='block'">Tambah Data</button>
+
+    <!-- Modal tambah data -->
+    <div id="modalTambah" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('modalTambah').style.display='none'">&times;</span>
+            <h2>Form Tambah Data</h2>
+            <form action="/tambah" method="post">
+                <label for="nidn">NIDN:</label>
+                <input type="text" id="nidn" name="nidn" required><br><br>
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required><br><br>
+                <button type="submit">Tambah</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal update data -->
+    <div id="modalUpdate" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('modalUpdate').style.display='none'">&times;</span>
+            <h2>Form Update Data</h2>
+            <form id="formUpdate" action="" method="post">
+                <label for="update_nama">Nama:</label>
+                <input type="text" id="update_nama" name="nama" required><br><br>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>NIDN</th>
+                <th>Nama</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in dosen %}
+            <tr>
+                <td>{{ obj.nidn }}</td>
+                <td>{{ obj.nama }}</td>
+                <td>
+                    <!-- Tombol hapus data -->
+                    <form action="/hapus/{{ obj.nidn }}" method="post" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                        <input type="hidden" name="nidn" value="{{ obj.nidn }}">
+                        <button type="submit">Hapus</button>
+                    </form>
+
+                    <!-- Tombol update data -->
+                    <button onclick="openUpdateModal('{{ obj.nidn }}', '{{ obj.nama }}')">Update</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        // Fungsi untuk menutup modal ketika pengguna mengklik di luar modal
+        window.onclick = function(event) {
+            var modalTambah = document.getElementById('modalTambah');
+            var modalUpdate = document.getElementById('modalUpdate');
+            if (event.target == modalTambah) {
+                modalTambah.style.display = "none";
+            }
+            if (event.target == modalUpdate) {
+                modalUpdate.style.display = "none";
+            }
+        }
+
+        // Fungsi untuk membuka modal pembaruan data dan mengisi nilai awal
+        function openUpdateModal(nidn, nama) {
+            document.getElementById('update_nama').value = nama;
+            document.getElementById('formUpdate').action = "/update/" + nidn;
+            document.getElementById('modalUpdate').style.display='block';
+        }
+    </script>
+</body>
+</html>
