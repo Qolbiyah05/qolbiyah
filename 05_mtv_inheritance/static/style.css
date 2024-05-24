@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+  h3 {
+    color: #333;
+    text-align: center;
+  }
+  
+  p {
+    color: #555;
+    text-align: center;
+  }
+  
+  button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  table {
+    margin: 0 auto;
+    width: 80%;
+  
+  }
+  table th,
+  table td {
+    border: 1px solid #F4F4F4;
+    border-collapse: collapse;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  form {
+      text-align: center;
+  }
+  
+  form label {
+      display: block;
+      margin-bottom: 10px;
+      text-align: center;
+  }
+  
+  form input[type="text"],
+  form input[type="submit"] {
+      display: block;
+      margin: 0 auto 10px;
+  }
+  
+  .edit-button {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745; /* Warna hijau */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .delete-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #dc3545; /* Warna merah */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .submit-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .submit-button:hover {
+    background-color: #218838;
+  }
