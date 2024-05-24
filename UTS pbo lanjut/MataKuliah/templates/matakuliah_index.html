@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data MataKuliah</title>
+        <link rel="stylesheet" href="/static/style.css" />
+    </head>
+    <body>
+            <h3>Data MataKuliah</h3>
+            <a href="/matakuliah/create"><button>Tambah</button></a>
+            <a href="/"><button>Kembali</button></a><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mata kuliah</th>
+                        <th>Nama_Dosen</th>
+                        <th>Jumlah_SKS</th>
+                        <th colspan="2">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in data %}
+                    <tr>
+                        <td>{{ obj.mata_kuliah }}</td>
+                        <td>{{ obj.nama_dosen }}</td>
+                        <td>{{ obj.jumlah_sks }}</td>
+                        <td><a href="/matakuliah/edit/{{ obj.id }}" class="edit-button">Edit</a></td>
+                        <td><a href="/matakuliah/delete/{{ obj.id }}" title="delete" class="delete-button" onclick="return confirm('Anda yakin untuk menghapus data ini?')">Hapus</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

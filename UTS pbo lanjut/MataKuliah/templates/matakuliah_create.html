@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tambah MataKuliah</title>
+        <link rel="stylesheet" href="/static/style.css" />
+    </head>
+    <body>
+            <h3>Tambah MataKuliah</h3>
+            <a href="/matakuliah"><button>Kembali</button></a><br><br>
+            <form action="/matakuliah/store" method="POST">
+                <label for="mata_kuliah">Mata kuliah:</label><br>
+                <input type="text" id="mata_kuliah" name="mata_kuliah" required><br>
+                <label for="nama_dosen">Nama_Dosen:</label><br>
+                <input type="text" id="nama_dosen" name="nama_dosen" required><br>
+                <label for="jumlah_sks">Jumlah_SKS:</label><br>
+                <input type="text" id="jumlah_sks" name="jumlah_sks" required><br>
+                <br>
+                <input type="submit" value="Submit" class="submit-button">
+            </form>
+        </div>
+    </body>
+</html>
