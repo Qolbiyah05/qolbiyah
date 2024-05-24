@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data from MySQL</title>
+    <link rel ="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <h1>Data from MySQL Database</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>NIDN</th>
+                <th>Nama</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in dosen %}
+            <tr>
+                <td>{{ obj.nidn }}</td>
+                <td>{{ obj.nama }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
