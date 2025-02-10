@@ -1,0 +1,182 @@
+
+/* Umum */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Container Utama */
+.container {
+    margin-top: 20px;
+}
+
+/* Judul Dashboard */
+h1 {
+    color: #343a40;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Card */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #495057;
+}
+
+.card-text {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+/* Tombol Logout */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Footer (Opsional) */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.colom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.col-md-4 {
+    flex: 1;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+.nav-item.active {
+    background-color: gray; /* Warna abu-abu */
+}
+
+.colom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.col-md-4 {
+    flex: 1;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.btn-grey {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    text-align: left;
+}
+.btn-grey:hover {
+    background-color: #5a6268;
+    color: #fff;
+}
+
