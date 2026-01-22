@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Balik Nama Kendaraan</title>
+<style>
+    body {
+        font-family: Arial; /* sama seperti semula */
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+
+        background: url("{{ url_for('static', filename='BAPENDA.png') }}") no-repeat center center;
+        background-size: 80% auto;   /* logo pas, tidak terlalu besar/kecil */
+        background-color: #ffffff;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        width: 400px;              /* ukuran tetap */
+        background: white;        /* sama seperti awal */
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    label { display: block; margin-top: 10px; }
+    select, input { width: 100%; padding: 5px; }
+    button { margin-top: 15px; padding: 10px; width: 100%; }
+</style>
+
+    <script>
+        function toggleProgressif() {
+            let tarif = document.getElementById("jenis_tarif").value;
+            let prog = document.getElementById("progressif_box");
+            if (tarif === "Progressif") {
+                prog.style.display = "block";
+            } else {
+                prog.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="box">
+    <h3>Kalkulator Ballik Nama Kendaraan</h3>
+
+    <form action="/baliknama _kendaraan" method="post">
+
+        <label>No Polisi</label>
+        <input type="text" name="nopol" oninput="this.value = this.value.toUpperCase()" required>
+
+        <label>NJKB</label>
+        <input type="number" name="njkb" required>
+
+        <label>Jenis Kendaraan</label>
+        <select name="jenis_kendaraan" required>
+            <option>Sepeda Motor (R2/R3)</option>
+            <option>Sepeda Motor >250cc</option>
+            <option>Mobil Penumpang/Barang Roda 3</option>
+            <option>Sedan</option>
+            <option>Jeep/ Minibus</option>
+            <option>Blind Van / Pick Up / Pivk Up Box</option>
+            <option>Microbus</option>
+            <option>Bus</option>
+            <option>Light Truck</option>
+            <option>Truck / Tronton</option>
+        </select>
+
+        <label>Jenis Tarif</label>
+        <select name="jenis_tarif" id="jenis_tarif" onchange="toggleProgressif()" required>
+            <option value="Progressif">Progressif</option>
+            <option>Tarif Angkutan Umum</option>
+            <option>Tarif Angkutan Karyawan</option>
+            <option>Tarif Angkutan Sekolah</option>
+            <option>Tarif Ambulans</option>
+            <option>Tarif Pemadam Kebakaran</option>
+            <option>Tarif Sosial Keagamaan</option>
+            <option>Tarif Lembaga Sosial dan Keagamaan</option>
+            <option>Tarif Instansi Pemerintah</option>
+        </select>
+
+        <!-- Progressif (setara self.label_progressif.hide()) -->
+        <div id="progressif_box" style="display:block;">
+            <label>Kepemilikan</label>
+            <select name="kepemilikan">
+                <option>Kepemilikan 1</option>
+                <option>Kepemilikan 2</option>
+                <option>Kepemilikan 3</option>
+                <option>Kepemilikan 4</option>
+                <option>Kepemilikan 5</option>
+                <option>Kepemilikan >5</option>
+            </select>
+        </div>
+
+        <label>Tanggal Jatuh Tempo</label>
+        <input type="date" name="jatuh_tempo" required>
+
+        <button type="submit">Hitung & Cetak Struk</button>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balik Nama Kendaraan</title>
+    <style>
+    body {
+        font-family: Arial;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+
+        background: url("{{ url_for('static', filename='BAPENDA.png') }}") no-repeat center center;
+        background-size: 80% auto;
+        background-color: #ffffff;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .struk {
+        width: 220px; /* 58mm ≈ 220px */
+        background: white;
+        padding: 10px;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+
+    .center { text-align: center; }
+    .line { border-top: 1px dashed #000; margin: 5px 0; }
+    .right { text-align: right; }
+
+    button {
+        width: 220px;
+        margin-top: 10px;
+        padding: 8px;
+    }
+
+    /* KHUSUS CETAK THERMAL */
+    @media print {
+        @page {
+            size: 58mm auto;   /* untuk printer 58mm */
+            margin: 0;
+        }
+
+        body {
+            background: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .struk {
+            width: 58mm;
+            box-shadow: none;
+        }
+
+        button {
+            display: none;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="struk">
+    <div class="center">
+        <strong>SAMSAT CILEDUG CIREBON</strong><br>
+        ESTIMASI BEA BALIK NAMA KENDARAAN<br>
+        {{ tanggal }}
+    </div>
+
+    <div class="line"></div>
+
+    No. Polisi : {{ nopol }}<br>
+    Kendaraan  : {{ jenis_kendaraan }}<br>
+    Telat      : {{ bulan_telat }} bulan<br>
+
+    <div class="line"></div>
+
+    PKB        : Rp {{ "{:,.0f}".format(pkb) }}<br>
+    Opsen PKB  : Rp {{ "{:,.0f}".format(opsen) }}<br>
+    Denda PKB  : Rp {{ "{:,.0f}".format(denda_pkb) }}<br>
+    Denda Opsen: Rp {{ "{:,.0f}".format(denda_opsen) }}<br>
+    SWDKLLJ    : Rp {{ "{:,.0f}".format(swdkllj) }}<br>
+    Denda SWDKLLJ : Rp {{ "{:,.0f}".format(denda_swdkllj) }}<br>
+    STNK       : Rp {{ "{:,.0f}".format(stnk) }}<br>
+    TNKB       : Rp {{ "{:,.0f}".format(tnkb) }}<br>
+    BPKB       : Rp {{ "{:,.0f}".format(bpkb) }}<br>
+
+    <div class="line"></div>
+
+    <strong>TOTAL BAYAR</strong>
+    <div class="right">
+        Rp {{ "{:,.0f}".format(total) }}
+    </div>
+
+    <div class="line"></div>
+
+    <div class="center">
+        *** TERIMA KASIH ***<br>
+    </div>
+</div>
+
+<button onclick="window.print()">CETAK STRUK</button>
+
+</body>
+</html>
